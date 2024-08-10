@@ -9,15 +9,17 @@ from spacy_load import nlp, username
 
 from heapq import nlargest
 
-"""python -m spacy download en_core_web_sm та додайте строку nlp = spacy.load('en_core_web_sm')
+"""
  Якщо при запуску main.py отримаєте
 'OSError: [E050] Can't find model 'en_core_web_sm'.
  It doesn't seem to be a Python package or a valid path to a data directory.
+ В терміналі виконайте:
+ python -m spacy download en_core_web_sm та додайте e код строку nlp = spacy.load('en_core_web_sm')
 '
 """
 
 
-path_to_nltk = Path(f'C:\Users\{username}\AppData\Roaming\nltk_data')
+path_to_nltk = Path('C:\\Users\\{}\\AppData\\Roaming\\nltk_data'.format(username))
 if not path_to_nltk.exists():
     nltk.download('punkt_tab')
     nltk.download('stopwords')
