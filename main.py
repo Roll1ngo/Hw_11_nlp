@@ -1,13 +1,16 @@
 from pathlib import Path
-import textwrap
+from heapq import nlargest
 
+import textwrap
+import spacy
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
-from spacy_load import nlp
 
-from heapq import nlargest
+""" Використайте в терміналі python -m spacy download en_core_web_sm
+"""
 
+nlp = spacy.load('en_core_web_sm')
 path_to_nltk = Path(r'C:\Users\RollPy\AppData\Roaming\nltk_data')
 if not path_to_nltk.exists():
     nltk.download('punkt_tab')
