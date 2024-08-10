@@ -1,14 +1,23 @@
 from pathlib import Path
 import textwrap
 
+
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
-from spacy_load import nlp
+from spacy_load import nlp, username
 
 from heapq import nlargest
 
-path_to_nltk = Path(r'C:\Users\RollPy\AppData\Roaming\nltk_data')
+"""python -m spacy download en_core_web_sm та додайте строку nlp = spacy.load('en_core_web_sm')
+ Якщо при запуску main.py отримаєте
+'OSError: [E050] Can't find model 'en_core_web_sm'.
+ It doesn't seem to be a Python package or a valid path to a data directory.
+'
+"""
+
+
+path_to_nltk = Path(f'C:\Users\{username}\AppData\Roaming\nltk_data')
 if not path_to_nltk.exists():
     nltk.download('punkt_tab')
     nltk.download('stopwords')
@@ -82,8 +91,8 @@ if __name__ == '__main__':
     with open("source.txt", "r") as file:
         text = file.read()
 
-    library = 'nltk'
-    # library = 'spacy'
+    # library = 'nltk'
+    library = 'spacy'
 
     source_text = text.replace('\n', ' ')
     get_summary(text, 3, library)
