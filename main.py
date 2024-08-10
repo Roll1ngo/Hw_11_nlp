@@ -7,8 +7,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
 
-""" Використайте в терміналі python -m spacy download en_core_web_sm
-"""
+""" Застосуйте в терміналі python -m spacy download en_core_web_sm"""
 
 nlp = spacy.load('en_core_web_sm')
 path_to_nltk = Path(r'C:\Users\RollPy\AppData\Roaming\nltk_data')
